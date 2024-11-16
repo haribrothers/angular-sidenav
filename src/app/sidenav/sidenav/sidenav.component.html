@@ -1,13 +1,10 @@
-<ng-template #overlayContent>
-  <div class="sidenav" [class.open]="isOpen" [class.overlay-mode]="mode === 'over'">
-    <ng-container *ngTemplateOutlet="content"></ng-container>
-  </div>
-</ng-template>
-
-<div class="sidenav" *ngIf="mode !== 'over'" [class.open]="isOpen">
+<div class="sidenav-bar" (mouseenter)="openNav()">
+  <ng-content select="[leftNavContent]"></ng-content>
+</div>
+<div class="sidenav" [class.open]="isOpen">
   <ng-container *ngTemplateOutlet="content"></ng-container>
 </div>
 
 <ng-template #content>
-  <ng-content></ng-content>
+  <ng-content select="[rightNavContent]"></ng-content>
 </ng-template>

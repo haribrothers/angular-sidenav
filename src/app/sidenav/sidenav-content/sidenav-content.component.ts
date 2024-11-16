@@ -1,5 +1,4 @@
-import { ChangeDetectorRef, Component, HostBinding, inject } from '@angular/core';
-import { SidenavContainerComponent } from '../sidenav-container/sidenav-container.component';
+import { ChangeDetectorRef, Component, HostBinding } from '@angular/core';
 import { SidenavMode } from '../sidenav.types';
 
 @Component({
@@ -14,7 +13,7 @@ export class SidenavContentComponent {
   @HostBinding('class.sidenav-content') hostClass = true;
   @HostBinding('class') class = 'side';
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private readonly cdr: ChangeDetectorRef) {
 
   }
 

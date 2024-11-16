@@ -2,7 +2,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    left: 64px;
     width: 250px;
     background: #2c3e50;
     transform: translateX(-100%);
@@ -19,3 +19,13 @@
       z-index: 1001;
     }
   }
+
+  .sidenav-bar{
+    width: 64px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: #4032a0;
+    z-index: 1001;
+}

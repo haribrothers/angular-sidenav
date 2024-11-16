@@ -14,7 +14,7 @@ import { SidenavContentComponent } from './sidenav/sidenav-content/sidenav-conte
 })
 export class AppComponent {
   isSidenavOpen = true;
-  currentMode: SidenavMode = 'side';
+  currentMode: SidenavMode = 'over';
 
   menuItems = [
     'Dashboard',

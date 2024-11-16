@@ -3,8 +3,12 @@
 </div>
 <app-sidenav-container class="sidenav-main">
     <app-sidenav [isOpen]="isSidenavOpen" [mode]="currentMode" (closed)="closeSidenav()">
-
-          <div class="sidenav-items">
+        <div leftNavContent class="sidenav-items">
+            <div class="sidenav-item" *ngFor="let item of menuItems; let i = index">
+              {{ i }}
+            </div>
+          </div>
+          <div rightNavContent class="sidenav-items">
             <div class="sidenav-item" *ngFor="let item of menuItems">
               {{ item }}
             </div>
@@ -15,7 +19,6 @@
             <button class="toggle-button" (click)="toggleSidenav()">
                 {{ isSidenavOpen ? 'Close Menu' : 'Open Menu' }}
             </button>
-            
             <button class="toggle-button" (click)="setMode('side')" [class.active]="currentMode === 'side'">
                 Side Mode
             </button>

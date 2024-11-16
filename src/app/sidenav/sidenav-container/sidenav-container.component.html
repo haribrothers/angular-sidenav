@@ -1,4 +1,6 @@
 <div class="sidenav-container">
+    <div class="backdrop" [class.visible]="_isOpen && _mode === 'over'" (mouseenter)="closeNav()">
+    </div>
     <ng-content select="app-sidenav"></ng-content>
     <ng-content select="app-sidenav-content"></ng-content>
     @if (!_content) {

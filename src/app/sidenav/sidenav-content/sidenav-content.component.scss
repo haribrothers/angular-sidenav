@@ -1,0 +1,30 @@
+:host(.sidenav-content) {
+  display: block;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  background: white;
+
+  &.side {
+    margin-left: 0;
+
+    &.shifted {
+      margin-left: 250px;
+    }
+  }
+
+  &.push {
+    margin-left: 0;
+
+    &.shifted {
+      transform: translateX(250px);
+    }
+  }
+
+  &.over {
+    margin-left: 0;
+
+    &.shifted {
+      margin-left: 0;
+    }
+  }
+}

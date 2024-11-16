@@ -1,0 +1,9 @@
+<div class="sidenav-container">
+    <ng-content select="app-sidenav"></ng-content>
+    <ng-content select="app-sidenav-content"></ng-content>
+    @if (!_content) {
+        <app-sidenav-content>
+            <ng-content></ng-content>
+        </app-sidenav-content>
+    }
+  </div>

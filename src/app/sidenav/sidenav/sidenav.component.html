@@ -1,7 +1,7 @@
-<div class="sidenav-bar" (mouseenter)="openNav()">
+<div class="sidenav-bar" [style.width]="_leftNavWidth" (mouseenter)="openNav()">
   <ng-content select="[leftNavContent]"></ng-content>
 </div>
-<div class="sidenav" [class.open]="isOpen">
+<div class="sidenav" [style.width]="_rightNavWidth" [style.left]="_leftNavWidth" [class.open]="isOpen">
   <ng-container *ngTemplateOutlet="content"></ng-container>
 </div>
 

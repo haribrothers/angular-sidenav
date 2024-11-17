@@ -25,8 +25,17 @@ import { SidenavContainerComponent } from '../sidenav-container/sidenav-containe
   styleUrl: './sidenav.component.scss'
 })
 export class SidenavComponent implements AfterViewInit, OnDestroy, OnChanges {
+
+  _leftNavWidth = '64px';
+  _rightNavWidth = '250px';
   @Input() isOpen = false;
   @Input() mode: SidenavMode = 'side';
+  @Input() set leftNavWidth(value: number) {
+    this._leftNavWidth = `${value}px`;
+  }
+  @Input() set rightNavWidth(value: number) {
+    this._rightNavWidth = `${value}px`;
+  }
   @Output() closed = new EventEmitter<void>();
 
   @ViewChild('overlayContent') overlayContent!: TemplateRef<any>;

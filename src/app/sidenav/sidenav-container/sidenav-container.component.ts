@@ -34,7 +34,7 @@ export class SidenavContainerComponent{
     this._isOpen = isSidenavOpen;
     if(this._content){
       console.log(mode, isSidenavOpen);
-      this._content.setSidenavChanges(mode, isSidenavOpen);
+      this._content.setSidenavChanges(mode, isSidenavOpen, this._sidenav._leftNavWidth, this._sidenav._rightNavWidth);
     }
   }
 }

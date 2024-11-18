@@ -10,6 +10,7 @@
 
 .sidenav-items {
   padding: 16px;
+  background-color: #FFF;
 }
 
 .sidenav-item {
@@ -18,7 +19,7 @@
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s;
-  color: white;
+  color: #001E3C;
 }
 
 .sidenav-item:hover {
@@ -63,3 +64,40 @@
     color: #fff;
   }
 }
+
+.leftnav-items {
+  padding: 16px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  background-color: #001E3C;
+
+  .leftnav-item {
+    display: flex;
+    padding: 8px 0px;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    align-self: stretch;
+    border-radius: 8px;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    &.active {
+      background: #FFF;
+      color:  #001E3C;
+    }
+    span {
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 375;
+      line-height: 18px;
+    }
+  }
+} 

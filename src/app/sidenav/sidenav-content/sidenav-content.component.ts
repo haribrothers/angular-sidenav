@@ -1,5 +1,4 @@
-import { ChangeDetectorRef, Component, HostBinding, inject } from '@angular/core';
-import { SidenavContainerComponent } from '../sidenav-container/sidenav-container.component';
+import { ChangeDetectorRef, Component, HostBinding } from '@angular/core';
 import { SidenavMode } from '../sidenav.types';
 
 @Component({
@@ -14,7 +13,11 @@ export class SidenavContentComponent {
   @HostBinding('class.sidenav-content') hostClass = true;
   @HostBinding('class') class = 'side';
 
-  constructor(private cdr: ChangeDetectorRef) {
+  @HostBinding('style.left') left = '64px';
+  @HostBinding('style.margin-left') marginLeft = '0';
+  @HostBinding('style.transform') transform = '';
+
+  constructor(private readonly cdr: ChangeDetectorRef) {
 
   }
 
@@ -22,10 +25,13 @@ export class SidenavContentComponent {
     this.class = mode;
   }
 
-  setSidenavChanges(mode: SidenavMode, isSidenavOpen: boolean) {
+  setSidenavChanges(mode: SidenavMode, isSidenavOpen: boolean, left: string = '64px', right: string = '250px') {
     const openClass = isSidenavOpen ? 'shifted' : '';
     console.log(mode, isSidenavOpen, openClass);
     this.class = `${mode} ${openClass}`;
+    this.left = left;
+    this.marginLeft = (isSidenavOpen && mode === 'side')  ? right : '0px';
+    this.transform = (isSidenavOpen && mode === 'push') ? `translateX(${right})` : '';
     this.cdr.detectChanges();
   }
 }

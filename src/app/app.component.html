@@ -2,20 +2,28 @@
     <h1>Angular Sidenav</h1>
 </div>
 <app-sidenav-container class="sidenav-main">
-    <app-sidenav [isOpen]="isSidenavOpen" [mode]="currentMode" (closed)="closeSidenav()">
+    <app-sidenav [leftNavWidth]="80" [rightNavWidth]="350" [isOpen]="isSidenavOpen" [mode]="currentMode"
+        (closed)="closeSidenav()">
+        <div leftNavContent class="leftnav-items">
+            @for (item of menuItems; track $index) {
+            <a tabindex="0" class="leftnav-item " [class.active]="$index === selectedIndex" (click)="toggleMenuItems($index)">
+                <app-icon [name]="item.icon"></app-icon>
+                <span>{{ item.name }}</span>
+            </a>
+            }
+        </div>
 
-          <div class="sidenav-items">
-            <div class="sidenav-item" *ngFor="let item of menuItems">
-              {{ item }}
+        <div rightNavContent class="sidenav-items">
+            <div class="sidenav-item" *ngFor="let item of menuItems[selectedIndex].items">
+                {{ item }}
             </div>
-          </div>
+        </div>
     </app-sidenav>
-    <app-sidenav-content >
+    <app-sidenav-content>
         <div class="controls">
             <button class="toggle-button" (click)="toggleSidenav()">
                 {{ isSidenavOpen ? 'Close Menu' : 'Open Menu' }}
             </button>
-            
             <button class="toggle-button" (click)="setMode('side')" [class.active]="currentMode === 'side'">
                 Side Mode
             </button>
